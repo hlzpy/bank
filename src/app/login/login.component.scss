@@ -1,0 +1,30 @@
+.content {
+  height: 100vh;
+  background: url('./../../assets/login2.jpg') no-repeat center;
+  background-size: cover;
+
+  .login-box {
+    width: 360px;
+    padding: 12px;
+    min-height: 300px;
+    margin: 100px auto;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.2);
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    margin-left: -180px;
+  }
+}
+
+
+.login-form-margin {
+  margin-bottom: 16px;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}

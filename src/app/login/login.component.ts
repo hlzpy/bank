@@ -1,34 +1,68 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
+import { Route, Router } from "@angular/router";
+import { UserType } from "../shared/enums";
+import { UserService } from "../shared/services/user.service";
+import { IUser } from "../shared/models";
+import { NzMessageService } from "ng-zorro-antd/message";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-  username: string = '';
-  password: string = '';
+  validateForm: FormGroup<{
+    userName: FormControl<string>;
+    password: FormControl<string>;
+    userType: FormControl<UserType>;
+  }> = this.fb.group({
+    userName: ["", [Validators.required]],
+    password: ["", [Validators.required]],
+    userType: [UserType.NormalUser, [Validators.required]],
+  });
 
-  constructor() {}
+  userTypes = [UserType.NormalUser, UserType.Admin, UserType.BankInstitution];
 
-  ngOnInit() {
-    // 从浏览器缓存中获取用户登录信息
-    const cachedUsername = localStorage.getItem('username');
-    const cachedPassword = localStorage.getItem('password');
+  constructor(
+    private fb: FormBuilder,
+    private route: Router,
+    private userSvc: UserService,
+    private msgSvc: NzMessageService
+  ) {}
 
-    if (cachedUsername && cachedPassword) {
-      this.username = cachedUsername;
-      this.password = cachedPassword;
-      this.login();
+  ngOnInit() {}
+
+  login(): void {
+    if (this.validateForm.valid) {
+      console.log("submit", this.validateForm.value);
+      this.userSvc.login(this.validateForm.value as IUser).subscribe({
+        next: (data) => {
+          if (data.state === "success") {
+            this.msgSvc.success("登录成功！");
+            this.route.navigate(["/"]);
+          }
+        },
+        error: (error) => {
+          this.msgSvc.error(error?.message);
+        },
+      });
+    } else {
+      Object.values(this.validateForm.controls).forEach((control) => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({ onlySelf: true });
+        }
+      });
     }
   }
 
-  login() {
-    // 执行实际的登录逻辑
-    // ...
-
-    // 如果登录成功，将用户登录信息保存到浏览器缓存中
-    localStorage.setItem('username', this.username);
-    localStorage.setItem('password', this.password);
+  register() {
+    this.route.navigate(["/register"]);
   }
 }

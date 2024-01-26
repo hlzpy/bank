@@ -1,13 +1,43 @@
-<!-- register.component.html -->
-<div class="register-container">
-  <h2>Register</h2>
-  <form (ngSubmit)="register()">
-    <label for="username">Username:</label>
-    <input type="text" id="username" [(ngModel)]="username" name="username" required>
-
-    <label for="password">Password:</label>
-    <input type="password" id="password" [(ngModel)]="password" name="password" required>
-
-    <button type="submit">Register</button>
-  </form>
+<div class="content">
+  <div class="login-box">
+    <h3 class="text-center text-2xl font-semibold py-2" style="font-size: 20px;">管理中心</h3>
+    <form nz-form [formGroup]="validateForm" class="login-form">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="请输入用户名!">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="userName" placeholder="请输入用户名" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="请输入密码!">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder="请输入密码" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control [nzErrorTip]="errorTpl">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="confirmPassword" placeholder="请再次输入密码" />
+            <ng-template #errorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">请输入密码</ng-container>
+              <ng-container *ngIf="control.hasError('confirm')">
+                两次输入的密码不一致，请重新输入
+              </ng-container>
+            </ng-template>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (click)="register()">注册</button>
+      <button nz-button class="login-form-button login-form-margin" [nzType]="'default'" (click)="login()">返回登录</button>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="请选择角色">
+          <nz-radio-group formControlName="userType">
+            <label *ngFor="let item of userTypes" nz-radio [nzValue]="item">{{item}}</label>
+          </nz-radio-group>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
 </div>
