@@ -1,2 +1,49 @@
-<p class="mt-2">customer-info-home works!</p>
-123
+<div class="flex items-center justify-between mb-2">
+  <div class="flex">
+    <input nz-input placeholder="姓名、用户名" [(ngModel)]="searchText" />
+    <button class="ml-4" nz-button nzType="primary" (click)="search()">搜索</button>
+  </div>
+
+  <button nz-button nzType="primary" (click)="editCustomerInfo()">新增</button>
+</div>
+<nz-table #fixedTable [nzData]="listOfData" [nzScroll]="{ x: '1000px', y: '400px' }">
+  <thead>
+    <tr>
+      <th nzLeft>用户名</th>
+      <th>姓名</th>
+      <th>身份证号</th>
+      <th>手机号</th>
+      <th>邮箱</th>
+      <th>注册日期</th>
+      <th>账户类型</th>
+      <th>开户行</th>
+      <th>状态</th>
+      <th nzRight style="width: 80px">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of fixedTable.data">
+      <td nzLeft>{{ data.userName }}</td>
+      <td>{{ data.name }}</td>
+      <td nzBreakWord>{{ data.idNumber }}</td>
+      <td nzBreakWord>{{ data.phoneNumber }}</td>
+      <td nzBreakWord>{{ data.emailAddress }}</td>
+      <td nzBreakWord>{{ data.registrationDate }}</td>
+      <td nzBreakWord>{{ data.accountType }}</td>
+      <td nzBreakWord>{{ data.bankName }}</td>
+      <td nzBreakWord>{{ data.status }}</td>
+      <td nzRight>
+        <a class="mr-2" (click)="editCustomerInfo(data)">编辑</a>
+        <a
+          nz-popconfirm
+          nzPopconfirmTitle="确定删除吗?"
+          nzPopconfirmPlacement="bottom"
+          (nzOnConfirm)="removeUser(data.id)"
+          nzOkText="确定"
+          nzCancelText="取消"
+          >删除</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

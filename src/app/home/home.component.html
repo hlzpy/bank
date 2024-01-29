@@ -9,40 +9,21 @@
   >
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
-        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
+        <img src="./../../assets/bank-icon.jpg" width="32" height="32" alt="logo" />
         <h1>银行管理系统</h1>
       </a>
     </div>
-    <ul
-      nz-menu
-      nzTheme="dark"
-      nzMode="inline"
-      [nzInlineCollapsed]="isCollapsed"
-    >
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       <ng-container *ngFor="let nav of navList">
-        <li
-          *ngIf="nav?.children?.length"
-          nz-submenu
-          nzOpen
-          [nzTitle]="nav.title"
-          [nzIcon]="nav.icon"
-        >
+        <li *ngIf="nav?.children?.length" nz-submenu nzOpen [nzTitle]="nav.title" [nzIcon]="nav.icon">
           <ul>
             <li *ngFor="let item of nav.children" nz-menu-item nzMatchRouter>
               <a [routerLink]="item.routerLink">{{ item.title }}</a>
             </li>
           </ul>
         </li>
-        <li
-          *ngIf="!nav.children || nav.children?.length === 0"
-          nz-menu-item
-          nzMatchRouter
-        >
-          <a
-            [routerLink]="nav.routerLink"
-            nzTooltipPlacement="right"
-            [nzTooltipTitle]="isCollapsed ? nav.title : ''"
-          >
+        <li *ngIf="!nav.children || nav.children?.length === 0" nz-menu-item nzMatchRouter>
+          <a [routerLink]="nav.routerLink" nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? nav.title : ''">
             <i nz-icon [nzType]="nav.icon"></i>
             <span>{{ nav.title }}</span>
           </a>
@@ -52,17 +33,14 @@
   </nz-sider>
   <nz-layout>
     <nz-header>
-      <div class="app-header">
+      <div class="app-header flex items-center justify-between">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-          <span
-            class="trigger"
-            nz-icon
-            [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-          ></span>
+          <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
         </span>
-        <!-- <div class="right">
-          <span nz-icon nzType="poweroff" nzTheme="outline"></span>
-        </div> -->
+        <div class="mr-8 flex items-center">
+          <span class="mr-4 font-bold">{{ userSvc?.currentLoginUser?.userName }}</span>
+          <span class="cursor-pointer" (click)="logout()" nz-icon nzType="poweroff" nzTheme="outline"></span>
+        </div>
       </div>
     </nz-header>
     <nz-content>

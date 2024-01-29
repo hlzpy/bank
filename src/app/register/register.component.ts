@@ -12,6 +12,7 @@ import { UserType } from "../shared/enums";
 import { UserService } from "../shared/services/user.service";
 import { NzMessageService } from "ng-zorro-antd/message";
 import { IUser } from "../shared/models";
+import dayjs from 'dayjs';
 
 @Component({
   selector: "app-register",
@@ -61,12 +62,12 @@ export class RegisterComponent {
     if (this.validateForm.valid) {
       console.log("submit", this.validateForm.value);
       const { confirmPassword, ...others } = this.validateForm.value;
-      this.userSvc.register(others as IUser).subscribe({
+      this.userSvc.register({ ...others, registrationDate: dayjs().format('YYYY-MM-DD') } as IUser).subscribe({
         next: () => {
           this.login();
-          this.msgSvc.success("注册成功， 请登录");
+          this.msgSvc.success('注册成功， 请登录');
         },
-        error: (error) => {
+        error: error => {
           this.msgSvc.error(error.message);
         },
       });

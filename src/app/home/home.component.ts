@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { UserService } from "../shared/services/user.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -37,4 +39,11 @@ export class HomeComponent {
       routerLink: "news",
     },
   ];
+
+  constructor(public userSvc: UserService, private router: Router) {}
+
+  logout() {
+    this.userSvc.clearCurrentUser();
+    this.router.navigate(["/login"]);
+  }
 }
