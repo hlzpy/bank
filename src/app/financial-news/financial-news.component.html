@@ -1,1 +1,44 @@
-<p>financial-news works!</p>
+<div class="text-header">优选产品</div>
+<hr class="my-4" />
+<div class="flex flex-wrap">
+  <div class="product-item" *ngFor="let item of productList" (click)="go()">
+    <h2 style="height: 55px">
+      {{item.name}}
+    </h2>
+    <p class="p_333">起购金额：{{item.amount}}元</p>
+    <p class="p_333">期限: 最低持有{{item.minDays}}天</p>
+    <p class="p_333">发行时间：{{item.issueTime}}</p>
+    <div class="income">
+      {{item.yieldDes}}
+      <p>{{item.yield}}</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="text-header mt-4">理财攻略</div>
+<hr class="my-4" />
+<div style="max-height: 290px;" class="mb-4">
+  <nz-carousel nzAutoPlay>
+    <div nz-carousel-content *ngFor="let index of financialStrategy">
+      <img [src]="index" style="width: 100%;" alt="" srcset="">
+    </div>
+  </nz-carousel>
+</div>
+
+<div nz-row nzGutter="12">
+  <div nz-col nzSpan="12" class="news">
+    <h3> 新产品发布公告</h3>
+    <div *ngFor="let item of newProducts" class="flex my-4 cursor-pointer" (click)="go()">
+      <div class="text">{{item.title}}</div>
+      <div class="time">{{item.createTime}}</div>
+    </div>
+  </div>
+  <div nz-col nzSpan="12" class="news">
+    <h3> 已发售产品公告</h3>
+    <div *ngFor="let item of olderProducts" class="flex my-4 cursor-pointer" (click)="go()">
+      <div class="text">{{item.title}}</div>
+      <div class="time">{{item.createTime}}</div>
+    </div>
+  </div>
+</div>

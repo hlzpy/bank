@@ -25,7 +25,7 @@ import { MODULE_DEFINITIONS } from "./module-definitions";
     IconsProviderModule,
     RouterModule.forChild([
       {
-        path: "",
+        path: '',
         component: HomeComponent,
         children: [...MODULE_DEFINITIONS],
       },

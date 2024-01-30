@@ -1,0 +1,78 @@
+.text-header {
+  font-size: 24px;
+  border-left: 5px solid #c1c1c1;
+  padding-left: 10px;
+  color: #333;
+}
+
+.product-item {
+  margin-left: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
+  background: url(./../../assets/pro_bg.gif) 146px 82px no-repeat #f7fbfe;
+  border: 1px solid #cdd6dd;
+  position: relative;
+  width: 278px;
+  height: 210px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .p_333 {
+    line-height: 22px;
+    color: #333;
+    font-size: 12px;
+  }
+
+  .income {
+    position: absolute;
+    width: 105px;
+    height: 105px;
+    left: 152px;
+    top: 108px;
+    text-align: center;
+
+    p {
+      font-size: 16px;
+      color: #f4a32a;
+      font-family: 微软雅黑;
+      margin-top: 4px;
+      line-height: 1;
+    }
+  }
+}
+
+[nz-carousel-content] {
+  text-align: center;
+  height: 290px !important;
+  // background: #364d79;
+  width: 100%;
+  color: #ccc;
+  overflow: hidden;
+}
+
+.news {
+  h3 {
+    padding-left: 8px;
+    font-size: 18px;
+    height: 45px;
+    line-height: 56px;
+    font-weight: normal;
+    border-bottom: 2px solid #0066b3;
+  }
+
+  .text {
+    // flex: 1;
+    width: calc(100% - 100px);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .time {
+    width: 100px;
+  }
+}
