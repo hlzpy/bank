@@ -12,6 +12,11 @@ export class HomeComponent {
 
   navList = [
     {
+      title: "我的账户",
+      icon: "cloud",
+      routerLink: "main",
+    },
+    {
       title: "客户信息管理",
       icon: "dashboard",
       routerLink: null,

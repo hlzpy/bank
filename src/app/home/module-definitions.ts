@@ -2,24 +2,22 @@ import { Route } from "@angular/router";
 
 export const MODULE_DEFINITIONS: Route[] = [
   {
-    path: "customer-info",
-    loadChildren: () =>
-      import(
-        "../customer-information-management/customer-information-management.module"
-      ).then((m) => m.CustomerInformationManagementModule),
+    path: 'main',
+    loadChildren: () => import('../main/main.module').then(m => m.MainModule),
   },
   {
-    path: "loan",
+    path: 'customer-info',
     loadChildren: () =>
-      import("../loan-management/loan-management.module").then(
-        (m) => m.LoanManagementModule
+      import('../customer-information-management/customer-information-management.module').then(
+        m => m.CustomerInformationManagementModule,
       ),
   },
   {
-    path: "news",
-    loadChildren: () =>
-      import("../financial-news/financial-news.module").then(
-        (m) => m.FinancialNewsModule
-      ),
+    path: 'loan',
+    loadChildren: () => import('../loan-management/loan-management.module').then(m => m.LoanManagementModule),
+  },
+  {
+    path: 'news',
+    loadChildren: () => import('../financial-news/financial-news.module').then(m => m.FinancialNewsModule),
   },
 ];

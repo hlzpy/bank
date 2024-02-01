@@ -1,0 +1,89 @@
+<div class="f-wrapper" id="showDiv">
+  <div class="overflow-auto" style="display: flex; justify-content: space-between; align-items: center">
+    <div class="f-w-title" style="max-width: 800px">
+      {{ nzModalData?.params?.name }}
+
+      <span class="product-num">2301202820</span>
+    </div>
+    <div class="header-right">近30天<span id="buyPeopleNum" style="display: inline-block">4,122</span>人已买</div>
+  </div>
+  <div id="baioqian" class="baioqian">
+    <span class="s-w">低波增利</span>
+
+    <span class="s-w">较低风险</span>
+
+    <span id="bankCode" class="s-w">全行</span>
+
+    <span class="s-w">净值型</span>
+  </div>
+  <div id="divFlag" class="divFlagSty">
+    <div class="divFlag-left">
+      <div class="divFlag-annual">
+        <div id="mainRate" class="annual-rate1" style="color: #c21b08">{{nzModalData?.params?.yieldFinance}}</div>
+        <div class="annual-text flex items-center">
+          <div>近半年年化</div>
+          <span
+            nz-icon
+            nzType="info-circle"
+            nzTheme="outline"
+            nz-tooltip
+            nzTooltipTitle="指当前净值日期和对应时间内的区间年化收益，并非最终持有期到期收益率。理财产品过往业绩不代表其未来表现，不等于其实际收益，请谨慎投资。举例：近一月年化收益率(﹪)=(当前净值-30日前净值)/30日前净值/30*365*100﹪。①当前净值含分红；②三个月、半年、一年分别按90天、180天、365天计算；③收益率四舍五入后保留两位小数。"
+          ></span>
+        </div>
+      </div>
+
+      <div class="divFlag-annual">
+        <div id="lowestBuyMoney" class="annual-rate">
+          1<span>元</span>
+
+          / 1<span>元</span>
+        </div>
+        <div class="annual-text">
+          <div>起购金额/递增金额</div>
+        </div>
+      </div>
+      <div class="divFlag-annual" style="width: 210px; padding: 0 20px; box-sizing: border-box">
+        <div id="financeDealine" class="annual-rate">
+          <span id="textBox"> {{nzModalData?.params?.describe}} </span>
+        </div>
+        <div class="annual-text">
+          <div>产品期限</div>
+        </div>
+      </div>
+    </div>
+    <div class="buy-right">
+      <div class="remain-quota" id="limitNumBox">
+        <div>剩余额度&nbsp;</div>
+        <div class="flexBox">
+          <div id="canUseQuota">95,238.88万</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rate-dec" id="financeShowRateOnline" style="display: block">
+    <div style="display: flex">
+      <div id="yearLine" style="text-align: left; flex: 1; margin-bottom: 10px">年化业绩比较基准：3.35％-4.50％</div>
+    </div>
+
+    <div class="extendHeight h20" id="expandBox" style="width: 92%; padding-right: 0px">
+      <div id="financeBenchmarkDesc" class="financeBenchmarkDesc txtNoWrap" style="line-height: 20px; display: block">
+        业绩比较基准由产品管理人依据产品的投资范围、投资策略、资产配置计划，并综合考虑市场环境等因素测算。产品属性为固定收益类产品，固收类资产仓位中枢为80％-100％；固收部分为债券类资产的组合，在久期控制在5年以内的情况下，根据当前市场利率水平、可投资债券的静态收益率等因素作为测算依据，扣除费率后得到产品业绩比较基准
+      </div>
+
+      <div id="FinanceBenchmarkFixedTips" class="FinanceBenchmarkFixedTips txtNoWrap" style="line-height: 20px">
+        业绩比较基准不是预期收益率，不代表产品的未来表现和实际收益，不构成对产品收益的承诺。
+      </div>
+    </div>
+  </div>
+
+  <div class="rate-dec" style="color: #bd1c0a">
+    理财产品过往业绩不代表其未来表现，不等于理财产品实际收益，请谨慎投资。
+  </div>
+</div>
+
+<div class="flex items-center">
+  <span class="mr-2">请输入购买金额</span>
+  <nz-input-number style="width: 200px; margin-left: 10px;" [(ngModel)]="value" [nzMin]="0" [nzMax]="10" [nzStep]="1"></nz-input-number>
+  <span>元</span>
+</div>

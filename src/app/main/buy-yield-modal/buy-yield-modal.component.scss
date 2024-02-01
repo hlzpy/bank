@@ -1,0 +1,950 @@
+.toast-tip {
+  padding: 10px;
+  position: absolute;
+  top: 147px;
+  right: 210px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  background: #4a4a4a;
+  border-radius: 2px;
+}
+.f-wrapper {
+  background: #fff;
+  padding: 20px 30px 30px;
+  border: none;
+}
+
+.refresh-icon {
+  width: 14px;
+  margin: 2px 0 2px 4px;
+}
+
+.showwidth {
+  width: 1030px;
+}
+.top-title {
+  font-family: MicrosoftYaHei;
+  font-size: 16px;
+  color: #1d2c4e;
+  letter-spacing: 0;
+  line-height: 22px;
+  font-weight: 700;
+  width: 100%;
+  margin: 30px 0 20px;
+  text-align: left;
+}
+.rate-dec {
+  font-size: 14px;
+  color: #1d2c4e;
+  letter-spacing: 0;
+  line-height: 14px;
+  font-weight: 400;
+  margin: -10px 0 20px;
+}
+.rate-dec p {
+  line-height: 14px;
+}
+
+.no-data {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.no-data-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #1d2c4e;
+  line-height: 20px;
+  text-align: center;
+}
+
+.chart-model {
+  //width: 100%;
+  //height: 340px;
+}
+
+.chart-model div:first-child {
+  position: initial !important;
+}
+
+.chart-date {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  margin-left: 49px;
+  font-size: 12px;
+  color: #8f97aa;
+  line-height: 12px;
+}
+.chart-date span {
+  display: inline-block;
+}
+.chart-tip {
+  text-align: left;
+  color: #1d2c4e;
+  line-height: 20px;
+  font-weight: 400;
+  margin-top: 20px;
+}
+.table-info {
+  width: 100%;
+  border-right: 1px solid rgba(246, 247, 250, 1);
+  border-bottom: 1px solid rgba(246, 247, 250, 1);
+}
+.table-info .table {
+  border: none;
+  margin-bottom: 0;
+}
+.table-info tr {
+  height: 60px;
+}
+.table.table-sm td {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+.input-value {
+  width: 485px;
+  min-height: 60px;
+  display: flex;
+  padding: 0;
+  color: #1d2c4e;
+}
+.input-value div:first-child {
+  width: 130px;
+  min-height: 60px;
+  padding-left: 30px;
+  align-items: center;
+  display: flex;
+  background: #f4f9fc;
+}
+.input-value div:last-child {
+  min-height: 59px;
+  display: flex;
+  padding: 0 30px;
+  align-items: center;
+  width: 265px;
+  border-top: 1px solid rgba(246, 247, 250, 1);
+  background: #fff;
+}
+
+.deal-line {
+  font-size: 12px;
+  color: #8f97aa;
+  margin-left: 10px;
+}
+.sigin-input-value {
+  width: 970px !important;
+}
+.sigin-input {
+  width: 750px !important;
+}
+
+.performance-desc,
+.performance-words {
+  display: block;
+  word-wrap: break-word;
+  word-break: normal;
+  width: 100%;
+}
+
+.icon-down {
+  width: 30px;
+  margin-left: -10px;
+  margin-top: -5px;
+}
+.icon-down-small {
+  width: 20px;
+  margin-left: -7px;
+}
+.pink {
+  color: #c21b08;
+}
+.table-rate {
+  color: #bd1c0a;
+}
+.rateRemark2 {
+  position: absolute;
+  top: 46px;
+  left: 130px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #bd1c0a;
+  padding: 20px !important;
+  border: 1px solid rgba(234, 241, 254, 0.47);
+  background-color: rgb(255, 255, 255);
+  height: auto !important;
+  width: auto !important;
+  min-width: 150px;
+  z-index: 999;
+  text-align: left;
+  box-shadow: rgb(129 171 255 / 32%) 0px 4px 14px 0px;
+}
+/* div{
+border-color:red;
+border-style:solid;
+border-width:1px;
+}  */
+* {
+  font-family: PingFangSC-Regular, Microsoft YaHei;
+  margin: 0;
+  padding: 0;
+}
+.qrCodeWenzi {
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 44px;
+}
+.qrCode {
+  border: 2px solid #eff6ff;
+  width: 120px;
+  height: 120px;
+}
+.exclusive {
+  background: #ffffff;
+  border: 1px solid #e3ebf4;
+  height: 260px;
+  background: url('/msper-web-finance/static/build/img_background.png?version=1706186139641') repeat center;
+}
+.exclusive1 {
+  width: 233px;
+  height: 120px;
+}
+.TextStyle {
+  font-size: 16px;
+  color: #808080;
+  letter-spacing: 0;
+  line-height: 22px;
+  text-align: center;
+}
+.TextStyle1 {
+  font-size: 20px;
+  color: #4a4a4a;
+  letter-spacing: 0;
+  text-align: center;
+  margin-top: 15px;
+}
+.TextStyle2 {
+  font-size: 32px;
+  color: #4a4a4a;
+  letter-spacing: 0;
+  line-height: 42px;
+  text-align: center;
+}
+.unbuy {
+  width: 135px;
+  line-height: 40px;
+  display: inline-block;
+  background: rgba(0, 68, 144, 0.3);
+  border-radius: 2px;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 0;
+  text-align: center;
+  font-weight: 400;
+}
+.buy-btn {
+  width: 120px;
+  line-height: 40px;
+  display: inline-block;
+  color: #fff;
+  text-align: center;
+  background-image: linear-gradient(270deg, #f34531 0%, #d53019 100%);
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.detail-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.default-btn {
+  width: 135px;
+  height: 40px;
+  background: #004490;
+  border-radius: 2px;
+  color: #fff;
+  border: none;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.typesign {
+  right: -10px;
+  top: 15px;
+  width: 110px;
+  height: 110px;
+}
+
+.pufainfo {
+  float: right;
+  text-decoration: none;
+  width: 200px;
+  line-height: 37px;
+}
+.AmountTotal {
+  margin: 0px 0px 5px;
+}
+.AmountTotal span {
+  position: inherit;
+}
+.totalInfo {
+  float: right;
+  margin-right: 200px;
+  margin-left: 0px;
+}
+.baioqian {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: wrap;
+}
+.bank-code {
+  margin-top: 20px;
+  text-align: left;
+  height: auto;
+}
+.s-w {
+  z-index: 2;
+  margin: 0px;
+  min-width: 50px;
+  display: inline;
+  color: #ff683e;
+  letter-spacing: 0;
+  line-height: 18px;
+  font-weight: 400;
+  padding: 0 5px;
+  background: rgba(255, 182, 86, 0.1);
+  border: 1px solid rgba(255, 145, 0, 0.3);
+  border-radius: 2px;
+  margin-right: 10px;
+  height: 18px;
+}
+
+.private-exclusive {
+  background-image: linear-gradient(180deg, #f79f17 0%, #f14e07 100%);
+  color: #fff;
+}
+
+.line-wrapper {
+  z-index: 2;
+}
+.rateRemarkShow {
+  font-size: 14px;
+  color: #bd1c0a;
+  line-height: 24px;
+  font-weight: 700;
+  padding: 20px;
+  position: absolute;
+  left: 170px;
+  margin-top: 10px;
+  border: 1px solid rgba(234, 241, 254, 0.47);
+  background-color: rgb(255, 255, 255);
+  height: auto;
+  width: auto;
+  min-width: 150px;
+  z-index: 999;
+  box-shadow: rgb(129 171 255 / 32%) 0px 4px 14px 0px;
+}
+
+.rate-num .rate-t {
+  margin-right: 12px;
+}
+.f-back1 {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  top: 18px;
+  width: 201px;
+  background-size: cover;
+}
+.tw-date-choose_perf a {
+  display: inline-block;
+  background: #ffffff;
+  border: 1px solid #979797;
+  font-size: 14px;
+  color: #9b9b9b;
+  letter-spacing: 0;
+  height: 26px;
+  line-height: 26px;
+  width: 64px;
+  text-align: center;
+  margin-right: 6px;
+}
+.tw-date-choose_perf a.active {
+  background: #005ac2;
+  border: 1px solid #005ac2;
+  color: #fff;
+}
+.timeline {
+  background-image: url(/msper-web-finance/static/build/timeline.png);
+}
+.timeline.positionReset {
+  // background-image: url(../assets/timeline.png);
+  margin-left: 60px;
+  margin-top: -80px;
+  /* width:700px;
+   float:left; */
+}
+.timeline.tbuy {
+  margin-top: -80px;
+  margin-left: 60px;
+  width: 82%；;
+}
+.timeline1.tbuy {
+  margin-top: -80px;
+  margin-left: 60px;
+  width: 82%；;
+}
+.timeline1 {
+  display: inline-block;
+  text-align: center;
+  width: 800px;
+  height: 12px;
+  background-image: url(/msper-web-finance/static/build/timeline1.png?version=1706186139641);
+  padding: 40px 60px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.timeline1 .timeline_desc_1_1 {
+  color: #0c4d94;
+  position: relative;
+  float: left;
+  margin-top: -20px;
+  margin-left: -10px;
+  top: -5px;
+}
+.timeline1 .timeline_desc_1_2 {
+  color: #0c4d94;
+  position: relative;
+  margin-top: -20px;
+  margin-left: 150px;
+  float: left;
+  left: 2px;
+  top: -5px;
+}
+.timeline1 .timeline_desc_1_3 {
+  color: #d93741;
+  float: left;
+  position: relative;
+  margin-top: -20px;
+  margin-left: 280px;
+  left: 5px;
+  top: -5px;
+}
+.timeline1 .timeline_desc_1_4 {
+  color: #d93741;
+  position: relative;
+  float: left;
+  margin-top: -20px;
+  margin-left: 400px;
+  top: -5px;
+  left: 0;
+}
+.timeline1 .timeline_desc_1_5 {
+  color: #d93741;
+  position: relative;
+  float: left;
+  margin-top: -20px;
+  margin-left: 770px;
+  margin-right: -25px;
+  left: 9px;
+  top: -5px;
+}
+.timeline1 .timeline_1 {
+  display: none;
+  width: 200px;
+  height: 12px;
+  background-image: url(/msper-web-finance/static/build/timeline2.png?version=1706186139641);
+}
+.timeline1 .timeline_2 {
+  display: none;
+  width: 305px;
+  height: 12px;
+  background-image: url(/msper-web-finance/static/build/timeline2.png?version=1706186139641);
+}
+.timeline1 .timeline_3 {
+  display: none;
+  width: 436px;
+  height: 12px;
+  background-image: url(/msper-web-finance/static/build/timeline2.png?version=1706186139641);
+}
+.timeline .timeline_desc_1_6 {
+  color: #d93741;
+  position: relative;
+  float: left;
+  margin-top: -20px;
+  margin-left: 770px;
+  margin-right: -25px;
+  left: 9px;
+  top: -5px;
+}
+.timeline1 .timeline_1.active {
+  display: block;
+}
+.timeline1 .timeline_2.active {
+  display: block;
+}
+.timeline1 .timeline_3.active {
+  display: block;
+}
+.timeline1 .timeline_desc_2_1 {
+  color: #777;
+  position: relative;
+  float: left;
+  margin-top: 15px;
+  margin-left: -25px;
+  left: -2px;
+  top: -5px;
+}
+.timeline1 .timeline_desc_2_2 {
+  color: #777;
+  position: relative;
+  float: left;
+  margin-top: 15px;
+  margin-left: 105px;
+  left: -2px;
+  top: -5px;
+}
+.timeline1 .timeline_desc_2_3 {
+  color: #777;
+  position: relative;
+  float: left;
+  margin-top: 15px;
+  margin-left: 40px;
+  left: -2px;
+  top: -5px;
+}
+.timeline1 .timeline_desc_2_4 {
+  color: #777;
+  position: relative;
+  float: right;
+  margin-top: 15px;
+  margin-right: 340px;
+  left: 11px;
+  top: -5px;
+}
+
+.timeline1 .timeline_desc_2_5 {
+  color: #777;
+  position: relative;
+  float: left;
+  margin-top: 15px;
+  margin-left: 58px;
+  left: -2px;
+  top: -5px;
+}
+.timeline1 .timeline_desc_2_6 {
+  color: #777;
+  position: relative;
+  float: right;
+  margin-top: 15px;
+  margin-right: -20px;
+  left: 11px;
+  top: -5px;
+}
+
+.qrCodeTitle {
+  width: 166px;
+  height: 40px;
+  position: absolute;
+  display: none;
+  opacity: 0.5;
+  margin-left: 4px;
+  background: url('/msper-web-finance/static/build/fuchuang.png?version=1706186139641') repeat center;
+}
+#showVerbalTrick {
+  width: 166px;
+  height: 40px;
+  position: absolute;
+  top: 40px;
+  left: 55px;
+  display: none;
+  opacity: 0.8;
+  margin-left: 4px;
+  background: url('/msper-web-finance/static/build/fuchuang.png?version=1706186139641') repeat center;
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 44px;
+}
+
+.qrCodeWord {
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 44px;
+}
+
+.imgc {
+  margin-bottom: 3px;
+}
+.buy1 {
+  background: url('/msper-web-finance/static/build/buyTag.png?version=1706186139641') no-repeat;
+  width: 64px;
+  height: 64px;
+  margin-left: 8px;
+}
+
+.abuy1 {
+  background: url('/msper-web-finance/static/build/shuhui.png?version=1706186139641') no-repeat;
+  width: 64px;
+  height: 64px;
+  margin-left: 8px;
+  margin-top: 10px;
+}
+
+.f-w-star {
+  font-size: 15px;
+  color: #d0011b;
+}
+
+.f-w-star img {
+  vertical-align: top;
+  margin-top: 4px;
+  margin-left: 1px;
+}
+
+.link-top {
+  width: 20px;
+  background: #d61c2a;
+  display: inline-block;
+  margin-left: 50%;
+  margin-right: 10px;
+}
+.link-top1 {
+  width: 20px;
+  background: #1cb1d6;
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+.buy-2 {
+  margin-top: 0px;
+}
+.tw-date-choose3 a {
+  display: inline-block;
+  background: #ffffff;
+  border: 1px solid #979797;
+  font-size: 14px;
+  color: #9b9b9b;
+  letter-spacing: 0;
+  height: 26px;
+  line-height: 26px;
+  width: 64px;
+  text-align: center;
+  margin-right: 6px;
+}
+
+.date-choose {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 14px;
+  color: #1d2c4e;
+  letter-spacing: 0;
+  font-weight: 400;
+  margin-left: 49px;
+  height: 29px;
+  border-bottom: 1px solid #dde3ed;
+}
+.history-section,
+.tw-date-choose4,
+.tw-date-choose5,
+.net-trendChart,
+.netvou-section,
+.earnings-section {
+  display: flex;
+  height: 30px;
+}
+.history-section a,
+.tw-date-choose4 a,
+.tw-date-choose5 a,
+.net-trendChart a,
+.netvou-section a,
+.earnings-section a {
+  display: inline-block;
+  text-decoration: none;
+  width: 80px;
+  line-height: 20px;
+  padding-top: 4px;
+  color: #1d2c4e;
+  text-decoration-line: none;
+}
+
+.date-choose-active {
+  color: #004490 !important;
+  font-weight: 700;
+  border-bottom: 2px solid #004490;
+}
+
+.date-choose-right {
+  display: flex;
+  font-family: MicrosoftYaHeiUI;
+  color: #8d9fbb;
+  align-items: center;
+}
+.date-choose-right span {
+  display: inline-block;
+}
+.right-flag {
+  background: #ff8827;
+  width: 4px;
+  height: 8px;
+  margin-right: 6px;
+}
+
+.tw-date-choose3 a.active {
+  background: #005ac2;
+  border: 1px solid #005ac2;
+  color: #fff;
+}
+
+.tab-btn {
+  padding: 0px 30px;
+  background: #fff;
+}
+.tab-wrapper {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #dde3ed;
+  align-items: center;
+}
+.tab-wrapper div {
+  width: auto;
+  height: 70px;
+  line-height: 70px;
+  background: #fff;
+  border: none;
+  margin-right: 40px;
+  font-size: 20px;
+  color: #1d2c4e;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.tab-wrapper div:first-child {
+  border-left: none;
+}
+.tab-wrapper div:last-child {
+  margin-right: 0px;
+}
+.tab-wrapper div.active {
+  border: none;
+}
+.tab-wrapper div.select-btn {
+  height: 66px;
+  line-height: 70px;
+  font-size: 20px;
+  color: #004490;
+  font-weight: 700;
+  border-bottom: 4px solid #004490;
+}
+.tab-wrapper div.active {
+  width: auto;
+  height: 70px;
+  line-height: 70px;
+  background: #fff;
+  border: none;
+  margin-right: 40px;
+  font-size: 20px;
+  color: #1d2c4e;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.frame-content {
+  background: #fff;
+  margin-top: 0px;
+  padding: 20px 30px 30px;
+}
+.disable-deal {
+  margin-top: 10px;
+}
+.disable-deal-text {
+  margin-top: 10px;
+  color: #1d2c4e;
+  text-align: center;
+  line-height: 20px;
+}
+
+.code-w {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  height: 70px;
+  line-height: 70px;
+  background: #fff;
+  border: none;
+  margin-right: 40px;
+  font-size: 20px;
+  color: #1d2c4e;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.tab-wrapper div.active {
+  border: none;
+}
+.tab-wrapper div.select-btn {
+  height: 66px;
+  line-height: 70px;
+  font-size: 20px;
+  color: #004490;
+  font-weight: 700;
+  border-bottom: 4px solid #004490;
+}
+.frame-content {
+  background: #fff;
+  margin-top: 0px;
+  padding: 20px 30px 30px;
+}
+
+.f-w-title {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 20px;
+  color: #1d2c4e;
+  letter-spacing: 0;
+  line-height: 30px;
+  font-weight: 700;
+}
+.header-right {
+  font-size: 16px;
+  color: #1d2c4e;
+  letter-spacing: 0;
+  text-align: right;
+  line-height: 24px;
+  font-weight: 400;
+}
+.product-num {
+  font-size: 14px;
+  color: #1d2c4e;
+  letter-spacing: 0;
+  line-height: 30px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+.product-label {
+  margin-left: 10px;
+  height: 30px;
+}
+.divFlagSty {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.divFlag-left {
+  display: flex;
+  align-items: flex-end;
+}
+.divFlag-annual {
+  margin-right: 40px;
+  width: 160px;
+}
+.divFlag-annual:last-of-type {
+  margin-right: 0px;
+}
+.annual-rate {
+  font-size: 20px;
+  color: #1d2c4e;
+  letter-spacing: 0;
+  line-height: 26px;
+  font-weight: 700;
+  word-break: break-all;
+}
+.annual-rate1 {
+  font-family: AppleSystemUIFont;
+  font-size: 32px;
+  color: #1d2c4e;
+  letter-spacing: 0;
+  line-height: 32px;
+  font-weight: 400;
+  word-break: break-all;
+}
+
+.annual-rate-small {
+  font-size: 14px;
+  line-height: 22px;
+  overflow: hidden;
+  white-space: normal;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.annual-text {
+  display: flex;
+  margin-top: 10px;
+  font-family: SourceHanSansCN;
+  font-size: 14px;
+  color: #8f97aa;
+  letter-spacing: 0;
+  text-align: center;
+  font-weight: 400;
+}
+#financeBenchmarkDesc {
+  position: relative;
+}
+.info-image {
+  display: inline-flex;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  margin-top: 6px;
+}
+
+
+.buy-right {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.remain-quota {
+  font-family: SourceHanSansCN;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #1d2c4e;
+  letter-spacing: 0;
+  text-align: right;
+  font-weight: 400;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.flexBox {
+  display: flex;
+}
+.divider {
+  border-bottom: 1px solid #dde3ed;
+}
+.other-product {
+  font-size: 14px;
+  height: auto;
+  overflow: visible;
+  color: #1d2c4e;
+  letter-spacing: 0;
+  line-height: 22px;
+  font-weight: 400;
+  padding: 20px 0 0;
+  display: flex;
+  justify-content: space-between;
+}
