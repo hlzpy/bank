@@ -12,14 +12,26 @@ export class HomeComponent {
 
   navList = [
     {
-      title: "我的账户",
-      icon: "cloud",
-      routerLink: "main",
+      title: "账户管理",
+      icon: "dashboard",
+      routerLink: null,
+      isOpen: true,
+      children: [
+        {
+          title: "我的账户",
+          routerLink: "/account/home",
+        },
+        {
+          title: "交易明细",
+          routerLink: "/account/transaction-detail",
+        },
+      ],
     },
     {
       title: "客户信息管理",
       icon: "dashboard",
       routerLink: null,
+      isOpen: false,
       children: [
         {
           title: "客户信息列表",
@@ -28,13 +40,46 @@ export class HomeComponent {
       ],
     },
     {
+      title: "普通银行账户管理",
+      icon: "dashboard",
+      routerLink: null,
+      isOpen: false,
+      children: [
+        {
+          title: "客户账号列表",
+          routerLink: "/customer-account-list",
+        },
+      ],
+    },
+    {
       title: "贷款管理",
       icon: "form",
       routerLink: null,
+      isOpen: false,
       children: [
         {
           title: "贷款列表",
           routerLink: "/loan/list",
+        },
+        {
+          title: "贷款审批列表",
+          routerLink: "/loan/approval-list",
+        },
+      ],
+    },
+    {
+      title: "存款管理",
+      icon: "form",
+      routerLink: null,
+      isOpen: false,
+      children: [
+        {
+          title: "存款列表",
+          routerLink: "/deposit/list",
+        },
+        {
+          title: "存款审批列表",
+          routerLink: "/deposit/approval-list",
         },
       ],
     },
@@ -42,6 +87,13 @@ export class HomeComponent {
       title: "理财资讯",
       icon: "cloud",
       routerLink: "news",
+      isOpen: false,
+    },
+    {
+      title: "安全认证",
+      icon: "cloud",
+      routerLink: "safety",
+      isOpen: false,
     },
   ];
 

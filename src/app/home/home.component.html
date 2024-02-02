@@ -13,9 +13,9 @@
         <h1>银行管理系统</h1>
       </a>
     </div>
-    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+    <ul class="sidebar-menu" nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       <ng-container *ngFor="let nav of navList">
-        <li *ngIf="nav?.children?.length" nz-submenu nzOpen [nzTitle]="nav.title" [nzIcon]="nav.icon">
+        <li *ngIf="nav?.children?.length" nz-submenu [nzTitle]="nav.title" [nzIcon]="nav.icon" [nzOpen]="nav.isOpen">
           <ul>
             <li *ngFor="let item of nav.children" nz-menu-item nzMatchRouter>
               <a [routerLink]="item.routerLink">{{ item.title }}</a>
