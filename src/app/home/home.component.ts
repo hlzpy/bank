@@ -9,7 +9,6 @@ import { Router } from "@angular/router";
 })
 export class HomeComponent {
   isCollapsed = false;
-
   navList = [
     {
       title: "账户管理",
@@ -29,7 +28,7 @@ export class HomeComponent {
     },
     {
       title: "客户信息管理",
-      icon: "dashboard",
+      icon: "info-circle",
       routerLink: null,
       isOpen: false,
       children: [
@@ -41,7 +40,7 @@ export class HomeComponent {
     },
     {
       title: "普通银行账户管理",
-      icon: "dashboard",
+      icon: "bank",
       routerLink: null,
       isOpen: false,
       children: [
@@ -53,7 +52,7 @@ export class HomeComponent {
     },
     {
       title: "贷款管理",
-      icon: "form",
+      icon: "money-collect",
       routerLink: null,
       isOpen: false,
       children: [
@@ -69,7 +68,7 @@ export class HomeComponent {
     },
     {
       title: "存款管理",
-      icon: "form",
+      icon: "pay-circle",
       routerLink: null,
       isOpen: false,
       children: [
@@ -85,7 +84,7 @@ export class HomeComponent {
     },
     {
       title: "理财资讯",
-      icon: "cloud",
+      icon: "dollar-circle",
       routerLink: "news",
       isOpen: false,
     },
