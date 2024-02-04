@@ -8,25 +8,9 @@
           <div>常用功能</div>
         </div>
         <div class="menu-list">
-          <a class="menu-item" href="javascript:void(0)">
-            <img class="menu-item-img" src="./../../assets/img_transfer.png" />
-            <div class="menu-item-text">转账</div>
-          </a>
-          <a class="menu-item" href="javascript:void(0)">
-            <img class="menu-item-img" src="./../../assets/img_query_account.png" />
-            <div class="menu-item-text">账户查询</div>
-          </a>
-          <a class="menu-item" href="javascript:void(0)">
-            <img class="menu-item-img" src="./../../assets/img_fund.png" />
-            <div class="menu-item-text">基金</div>
-          </a>
-          <a class="menu-item" href="javascript:void(0)">
-            <img class="menu-item-img" src="./../../assets/img_finance.png" />
-            <div class="menu-item-text">理财</div>
-          </a>
-          <a class="menu-item" href="javascript:void(0)">
-            <img class="menu-item-img" src="./../../assets/img_pay-fee.png" />
-            <div class="menu-item-text">缴费</div>
+          <a class="menu-item" (click)="goToPage(item.label)" *ngFor="let item of commonFunctions">
+            <img class="menu-item-img" [src]="item.src" />
+            <div class="menu-item-text">{{item.label}}</div>
           </a>
         </div>
       </div>
@@ -42,11 +26,11 @@
         </div>
         <div class="product-content1" id="product-content1">
           <div class="product-item" *ngFor="let item of financialProducts">
-            <div class="item-name">{{item.name}}</div>
-            <div class="item-describe">{{item.describe}}</div>
-            <div class="item-describe-buy">{{item.describeBuy}}</div>
-            <div id="item-yield-finance" class="item-yield">{{item.yieldFinance}}</div>
-            <div class="item-yield-name">{{item.yieldName}}</div>
+            <div class="item-name">{{ item.name }}</div>
+            <div class="item-describe">{{ item.describe }}</div>
+            <div class="item-describe-buy">{{ item.describeBuy }}</div>
+            <div id="item-yield-finance" class="item-yield">{{ item.yieldFinance }}</div>
+            <div class="item-yield-name">{{ item.yieldName }}</div>
             <div class="item-btn" (click)="buyYield(item)">立即购买</div>
           </div>
         </div>
@@ -73,15 +57,15 @@
       </div>
       <div class="property-msg">
         <div class="">
-          <div class="property-num" id="crnHoldsAmtId">{{isShow ? 1000000 : '*****'}}</div>
+          <div class="property-num" id="crnHoldsAmtId">{{ isShow ? 1000000 : '*****' }}</div>
           <div class="property-name">账户总资产(元)</div>
         </div>
         <div class="">
-          <div class="earn-num" id="yesterdayPftId" style="color: black">{{isShow ? 866 : '*****'}}</div>
+          <div class="earn-num" id="yesterdayPftId" style="color: black">{{ isShow ? 866 : '*****' }}</div>
           <div class="earn-name">昨日收益(元)</div>
         </div>
         <div class="">
-          <div class="property-num2" id="flexibleCashId">{{isShow ? 1000000 : '*****'}}</div>
+          <div class="property-num2" id="flexibleCashId">{{ isShow ? 1000000 : '*****' }}</div>
           <div class="property-name2">灵活取用(元)</div>
         </div>
       </div>
@@ -111,77 +95,6 @@
               </div>
             </div>
           </li>
-          <!-- <li>
-            <div class="notice-content">
-              <div class="hot-topic">热门</div>
-              <div>
-                <a
-                  href="javascript:void(0)"
-
-                  title="我行普发活期宝合作方将进行系统维护：长城基金将于2023年1月5日24:00-2024年1月6日5：00进行系统维护，期间旗下普发活期宝产品（长城收益货币C、长城工资宝C）的开户、销户交易可能受到影响。华安基金将于2024年1月6日23：00-2024年1月7日2：00进行系统维护，期间旗下普发活期宝产品（华安货币市场B、华安现金富利B）的开户、销户办理可能受到影响。请您提前做好相关安排，避开上述时间段操作，给您带来的不便敬请谅解。"
-                  target="content-iframe"
-                  >我行普发活期宝合作方将进行系统维护： 长城基...</a
-                >
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="notice-content">
-              <div class="hot-topic">热门</div>
-              <div>
-                <a
-                  href="javascript:void(0)"
-
-                  title="尊敬的客户： 根据中国人民银行统一安排，2024年人行计划于1 月 21 日、3 月 24 日、6 月 23 日、7 月 21 日、9 月 22 日、11 月 24日开启维护窗口，当日0:00-6:00对小额支付系统、网上支付跨行清算系统进行维护。在此期间，部分跨行转账业务受到影响，可能导致受理失败或无法及时到账，请您关注是否扣款成功，避免重复汇款。　　请您提前做好相应安排，由此给您带来的不便，敬请谅解。"
-                  target="content-iframe"
-                  >尊敬的客户： 根据中国人民银行统一安排，2...</a
-                >
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="notice-content">
-              <div class="hot-topic">热门</div>
-              <div>
-                <a
-                  href="javascript:void(0)"
-
-                  title=" 尊敬的客户：我行自2023年11月7日起将不再提供点滴成金业务的后续相关服务。现将有关事宜通知如下：1、自2023年11月7日起，我行将全面终止点滴成金业务，不再提供点滴成金业务服务。2、持仓客户可继续通过原入口进入，查看、持有、赎回原项下各基金。具体以浦发银行个人手机银行APP界面展示为准。我行预计在11月7日晚上22:00至23:30期间系统实施变更，期间将影响手机银行、个人网银等渠道中我的资产查询功能。敬请知晓，并提前做好资金安排，由此给您带来的不便，敬请谅解。"
-                  target="content-iframe"
-                >
-                  尊敬的客户： 我行自2023年11月7日起...</a
-                >
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="notice-content">
-              <div class="hot-topic">热门</div>
-              <div>
-                <a
-                  href="javascript:void(0)"
-
-                  title="尊敬的客户： 为保障您的资金安全，我行计划于2023年5月16日调整个人手机银行和网银的单日转账限额规则。自5月16日起，我行将根据日常资金使用情况调整部分客户手机银行和网银渠道单日的转账限额，请提前做好资金安排。由此给您带来的不便，敬请谅解。"
-                  target="content-iframe"
-                  >尊敬的客户： 为保障您的资金安全，我行计划...</a
-                >
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="notice-content">
-              <div class="hot-topic">热门</div>
-              <div>
-                <a
-                  href="javascript:void(0)"
-
-                  title="关于加强浦发银行杭州分行个人长期不动户管理的公告尊敬的客户：为加强个人借记卡账户管理，防范电信网络诈骗风险，更好地保障您的账户资金安全，为您提供更加优质、高效的金融服务，我行将对连续一年（含）以上未发生存现、取现、转账等主动交易的借记卡账户限制非柜面金融服务功能，限制已于2022年3月21日开始，您可通过我行手机银行或网点履行核实手续后解除限制。 谢谢您的配合，给您带来的不便，敬请谅解！如有疑问，请拨打95528客服热线或至开户网点面询。                       上海浦东发展银行杭州分行                          2023年4月14日"
-                  target="content-iframe"
-                  >关于加强浦发银行杭州分行个人长期不动户管理的...</a
-                >
-              </div>
-            </div>
-          </li> -->
         </ul>
       </div>
       <!-- banner展示区域 -->
@@ -230,11 +143,6 @@
             <li>
               <div class="scroll-item-name">买入价(汇/钞)</div>
               <div class="parities-text2">100.00 / 100.00</div>
-              <div class="parities-currency">
-                <span class="currency-style"
-                  ><img class="icon-currency" src="./../../assets/RMB.png" />&nbsp;人民币&nbsp;RMB</span
-                >
-              </div>
             </li>
           </ul>
         </div>

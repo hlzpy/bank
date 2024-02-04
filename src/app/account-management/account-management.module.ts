@@ -14,13 +14,18 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { BuyYieldModalComponent } from './buy-yield-modal/buy-yield-modal.component';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 
 @NgModule({
   declarations: [
     AccountHomeComponent,
     TransactionDetailComponent,
-    BuyYieldModalComponent
+    BuyYieldModalComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +39,11 @@ import { BuyYieldModalComponent } from './buy-yield-modal/buy-yield-modal.compon
     NzInputNumberModule,
     FormsModule,
     NzMessageModule,
+    NzTableModule,
+    NzSelectModule,
+    NzDatePickerModule,
+    NzFormModule,
+    NzInputModule,
   ]
 })
 export class AccountManagementModule { }

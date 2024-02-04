@@ -1,1 +1,48 @@
-<p>transaction-detail works!</p>
+<div class="flex items-center justify-between mb-2">
+  <div class="flex">
+    <input style="width: 200px" nz-input placeholder="请输入关键字" [(ngModel)]="searchParams.searchText" />
+    <nz-range-picker
+      class="mx-2"
+      style="width: 300px"
+      [(ngModel)]="searchParams.dateRange"
+    ></nz-range-picker>
+    <nz-select style="width: 150px" nzShowSearch nzAllowClear nzPlaceHolder="请选择交易方式" [(ngModel)]="searchParams.type">
+      <nz-option nzLabel="支付宝" nzValue="支付宝"></nz-option>
+      <nz-option nzLabel="微信" nzValue="微信"></nz-option>
+      <nz-option nzLabel="其他" nzValue="其他"></nz-option>
+    </nz-select>
+    <button class="ml-4" nz-button nzType="primary" (click)="search()">搜索</button>
+  </div>
+</div>
+<nz-table #fixedTable [nzData]="listOfData" [nzScroll]="{ x: '1000px', y: '400px' }">
+  <thead>
+    <tr>
+      <th nzWidth="80px" nzLeft>序号</th>
+      <th [nzSortFn]="sortDirections">交易日期</th>
+      <th>交易类型</th>
+      <th>存入金额</th>
+      <th>取出金额</th>
+      <th>余额</th>
+      <th>交易对手名</th>
+      <th>交易对手账号</th>
+      <th>附言</th>
+      <th nzRight style="width: 50px">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of fixedTable.data; let i = index">
+      <td nzWidth="80px" nzLeft>{{ i + 1 }}</td>
+      <td>{{ data.tradingDate | date:'YYYY-MM-dd' }}</td>
+      <td nzBreakWord>{{ data.tradingType }}</td>
+      <td nzBreakWord>{{ data.depositAmount }}</td>
+      <td nzBreakWord>{{ data.takeOutAmount }}</td>
+      <td nzBreakWord>{{ data.balance }}</td>
+      <td nzBreakWord>{{ data.counterPartyName }}</td>
+      <td nzBreakWord>{{ data.counterPartyAccount }}</td>
+      <td nzBreakWord>{{ data.notes }}</td>
+      <td nzRight>
+        <a class="mr-2" (click)="editCustomerInfo(data)">详情</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
