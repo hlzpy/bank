@@ -19,6 +19,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { TransferMoneyModalComponent } from './transfer-money-modal/transfer-money-modal.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
     AccountHomeComponent,
     TransactionDetailComponent,
     BuyYieldModalComponent,
+    TransferMoneyModalComponent,
   ],
   imports: [
     CommonModule,

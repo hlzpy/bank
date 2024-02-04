@@ -4,6 +4,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 import { UserService } from 'src/app/shared/services/user.service';
 import { BuyYieldModalComponent } from '../buy-yield-modal/buy-yield-modal.component';
 import { Router } from '@angular/router';
+import { TransferMoneyModalComponent } from '../transfer-money-modal/transfer-money-modal.component';
 
 @Component({
   selector: 'app-account-home',
@@ -57,6 +58,9 @@ export class AccountHomeComponent {
     this.isShow = !this.isShow;
   }
 
+  /**
+   * 购买理财
+   */
   buyYield(item) {
     this.modalSvc.create({
       nzTitle: `购买 ${item.name} 产品`,
@@ -91,5 +95,27 @@ export class AccountHomeComponent {
       this.router.navigate(['/news']);
       return;
     }
+    if (name === '转账') {
+      this.transferMoney();
+      return;
+    }
+  }
+
+  // 转账
+  transferMoney() {
+    this.modalSvc.create({
+      nzTitle: '转账',
+      nzContent: TransferMoneyModalComponent,
+      nzFooter: null,
+      nzWidth: 600,
+      // nzOkText: '确认转账',
+      // nzCancelText: '取消',
+      // nzOnOk: instance => {
+      //   if (!instance.value) {
+      //     this.msgSvc.error('请输入金额');
+      //     return false;
+      //   }
+      // },
+    });
   }
 }
