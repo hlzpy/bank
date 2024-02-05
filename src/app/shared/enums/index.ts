@@ -9,4 +9,6 @@ export enum Keys {
   CurrentLoginUser = "CurrentLoginUser",
   // 所有已注册的用户
   AllRegisteredUsers = "AllRegisteredUsers",
+  // 转账
+  TransferMoney = "TransferMoney",
 }

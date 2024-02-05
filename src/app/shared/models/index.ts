@@ -5,4 +5,6 @@ export interface IUser {
   password: string;
   userType: UserType;
   id?: string;
+  // 余额
+  balance?: number;
 }

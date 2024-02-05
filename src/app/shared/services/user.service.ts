@@ -24,7 +24,9 @@ export class UserService {
     if (currentUserType?.length === 0) {
       return throwError({ message: '该用户没有注册', state: 'error' });
     }
-    if (currentUserType?.some(item => item.userName === userName && item.password === password)) {
+    const currentUser = currentUserType?.find(item => item.userName === userName && item.password === password);
+    if (currentUser) {
+      this.setCurrentUser({ ...currentUser });
       return of({ message: '登录成功', state: 'success' });
     }
     if (currentUserType?.find(item => item.userName !== userName)) {
@@ -44,7 +46,7 @@ export class UserService {
     const allUsers = this.getJsonParse(Keys.AllRegisteredUsers) || [];
     const currentUserType = allUsers.filter(item => item.userType === userType);
     if (currentUserType?.length === 0 || !currentUserType?.some(item => item.userName === userName)) {
-      localStorage.setItem(Keys.AllRegisteredUsers, JSON.stringify([...allUsers, { ...data, id: uuid() }]));
+      localStorage.setItem(Keys.AllRegisteredUsers, JSON.stringify([...allUsers, { ...data, id: uuid(), balance: 1000000 }]));
       return of({ message: '注册成功', state: 'success' });
     }
     if (currentUserType?.some(item => item.userName === userName)) {
@@ -103,7 +105,7 @@ export class UserService {
    */
   setCurrentUser(user: IUser) {
     localStorage.setItem(Keys.CurrentLoginUser, JSON.stringify(user));
-    this.currentLoginUser = user;
+    this.currentLoginUser = { ...user };
   }
 
   getCurrentUser() {

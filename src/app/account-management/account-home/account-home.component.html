@@ -57,7 +57,7 @@
       </div>
       <div class="property-msg">
         <div class="">
-          <div class="property-num" id="crnHoldsAmtId">{{ isShow ? 1000000 : '*****' }}</div>
+          <div class="property-num" id="crnHoldsAmtId">{{ isShow ? userSvc?.currentLoginUser?.balance : '*****' }}</div>
           <div class="property-name">账户总资产(元)</div>
         </div>
         <div class="">
@@ -65,7 +65,7 @@
           <div class="earn-name">昨日收益(元)</div>
         </div>
         <div class="">
-          <div class="property-num2" id="flexibleCashId">{{ isShow ? 1000000 : '*****' }}</div>
+          <div class="property-num2" id="flexibleCashId">{{ isShow ? userSvc?.currentLoginUser?.balance : '*****' }}</div>
           <div class="property-name2">灵活取用(元)</div>
         </div>
       </div>

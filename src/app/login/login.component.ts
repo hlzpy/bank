@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
           if (data.state === "success") {
             this.msgSvc.success("登录成功！");
             this.route.navigate(["/"]);
-            this.userSvc.setCurrentUser(this.validateForm.value as IUser);
           }
         },
         error: (error) => {

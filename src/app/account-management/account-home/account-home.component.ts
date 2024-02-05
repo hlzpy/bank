@@ -91,7 +91,7 @@ export class AccountHomeComponent {
       this.router.navigate(['/account/transaction-detail']);
       return;
     }
-    if (name === '理财咨询') {
+    if (name === '理财资讯') {
       this.router.navigate(['/news']);
       return;
     }

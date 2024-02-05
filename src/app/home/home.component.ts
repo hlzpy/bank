@@ -1,105 +1,107 @@
-import { Component } from "@angular/core";
-import { UserService } from "../shared/services/user.service";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../shared/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   isCollapsed = false;
   navList = [
     {
-      title: "账户管理",
-      icon: "dashboard",
+      title: '账户管理',
+      icon: 'dashboard',
       routerLink: null,
       isOpen: true,
       children: [
         {
-          title: "我的账户",
-          routerLink: "/account/home",
+          title: '我的账户',
+          routerLink: '/account/home',
         },
         {
-          title: "交易明细",
-          routerLink: "/account/transaction-detail",
+          title: '交易明细',
+          routerLink: '/account/transaction-detail',
         },
       ],
     },
     {
-      title: "客户信息管理",
-      icon: "info-circle",
+      title: '客户信息管理',
+      icon: 'info-circle',
       routerLink: null,
       isOpen: false,
       children: [
         {
-          title: "客户信息列表",
-          routerLink: "/customer-info",
+          title: '客户信息列表',
+          routerLink: '/customer-info',
         },
       ],
     },
     {
-      title: "普通银行账户管理",
-      icon: "bank",
+      title: '普通银行账户管理',
+      icon: 'bank',
       routerLink: null,
       isOpen: false,
       children: [
         {
-          title: "客户账号列表",
-          routerLink: "/customer-account-list",
+          title: '客户账号列表',
+          routerLink: '/customer-account-list',
         },
       ],
     },
     {
-      title: "贷款管理",
-      icon: "money-collect",
+      title: '贷款管理',
+      icon: 'money-collect',
       routerLink: null,
       isOpen: false,
       children: [
         {
-          title: "贷款列表",
-          routerLink: "/loan/list",
+          title: '贷款列表',
+          routerLink: '/loan/list',
         },
         {
-          title: "贷款审批列表",
-          routerLink: "/loan/approval-list",
+          title: '贷款审批列表',
+          routerLink: '/loan/approval-list',
         },
       ],
     },
     {
-      title: "存款管理",
-      icon: "pay-circle",
+      title: '存款管理',
+      icon: 'pay-circle',
       routerLink: null,
       isOpen: false,
       children: [
         {
-          title: "存款列表",
-          routerLink: "/deposit/list",
+          title: '存款列表',
+          routerLink: '/deposit/list',
         },
         {
-          title: "存款审批列表",
-          routerLink: "/deposit/approval-list",
+          title: '存款审批列表',
+          routerLink: '/deposit/approval-list',
         },
       ],
     },
     {
-      title: "理财资讯",
-      icon: "dollar-circle",
-      routerLink: "news",
+      title: '理财资讯',
+      icon: 'dollar-circle',
+      routerLink: 'news',
       isOpen: false,
     },
     {
-      title: "安全认证",
-      icon: "cloud",
-      routerLink: "safety",
+      title: '安全认证',
+      icon: 'cloud',
+      routerLink: 'safety',
       isOpen: false,
     },
   ];
 
   constructor(public userSvc: UserService, private router: Router) {}
 
+  ngOnInit(): void {}
+
   logout() {
     this.userSvc.clearCurrentUser();
-    this.router.navigate(["/login"]);
+    this.router.navigate(['/login']);
   }
 }

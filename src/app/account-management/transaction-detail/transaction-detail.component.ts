@@ -3,6 +3,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import * as _ from 'lodash';
 import dayjs from 'dayjs';
+import { TransferMoneyService } from 'src/app/shared/services/transfer-money.service';
 
 @Component({
   selector: 'app-transaction-detail',
@@ -10,7 +11,7 @@ import dayjs from 'dayjs';
   styleUrls: ['./transaction-detail.component.scss'],
 })
 export class TransactionDetailComponent {
-  sortDirections= (a: any, b: any) => new Date(a.tradingDate).getTime() - new Date(b.tradingDate).getTime();
+  sortDirections = (a: any, b: any) => new Date(a.tradingDate).getTime() - new Date(b.tradingDate).getTime();
   searchParams = {
     searchText: null,
     dateRange: null,
@@ -219,9 +220,16 @@ export class TransactionDetailComponent {
 
   cacheData: any[] = [];
 
-  constructor(private modalSvc: NzModalService, private msgSvc: NzMessageService) {}
+  constructor(
+    private modalSvc: NzModalService,
+    private msgSvc: NzMessageService,
+    private transferMoneySvc: TransferMoneyService,
+  ) {}
   ngOnInit(): void {
-    this.cacheData = _.cloneDeep(this.listOfData);
+    this.transferMoneySvc.getTransferMoney().subscribe(data => {
+      this.listOfData = [...data, ...this.listOfData];
+      this.cacheData = _.cloneDeep(this.listOfData);
+    });
   }
 
   search() {

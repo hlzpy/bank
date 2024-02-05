@@ -1,5 +1,34 @@
 <div>
-  
+  <div class="mb-2 font-bold">收款账户</div>
+  <div class="flex my-2 items-center">
+    <div class="label">户名：</div>
+    <input class="flex-1 ml-2" nz-input [(ngModel)]="params.counterPartyName" placeholder="请输入对方账户" />
+  </div>
+  <div class="flex my-2 items-center">
+    <div class="label">账号：</div>
+    <input class="flex-1 ml-2" nz-input [(ngModel)]="params.counterPartyAccount" placeholder="请输入对方账户" />
+  </div>
+  <div class="flex my-2 items-center">
+    <div class="label">银行：</div>
+    <nz-select class="flex-1 ml-2" [(ngModel)]="params.bank" nzPlaceHolder="请选择对方银行" nzAllowClear>
+      <nz-option *ngFor="let item of banks" [nzLabel]="item.name" [nzValue]="item.name"> </nz-option>
+    </nz-select>
+  </div>
+  <hr class="my-4" />
+  <div class="flex my-2 items-center">
+    <div class="label">转出金额：</div>
+    <nz-input-number class="flex-1 ml-2" [(ngModel)]="params.takeOutAmount" nzPlaceHolder="请输入转出金额" />
+  </div>
+  <div class="flex my-2 items-center">
+    <div class="label">附言：</div>
+    <textarea
+      class="flex-1 ml-2"
+      nz-input
+      placeholder="0手续费"
+      [(ngModel)]="params.notes"
+      [nzAutosize]="{ minRows: 2, maxRows: 6 }"
+    ></textarea>
+  </div>
 </div>
 <div *nzModalFooter>
   <button nz-button nzType="default" (click)="onCancel()">取消</button>
