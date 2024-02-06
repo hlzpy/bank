@@ -1,0 +1,53 @@
+<div>
+  <div class="flex my-2 items-center">
+    <div class="label">贷款类型：</div>
+    <nz-select
+      style="width: 150px"
+      nzShowSearch
+      nzAllowClear
+      nzPlaceHolder="请选择贷款类型"
+      [(ngModel)]="loan.name"
+      (ngModelChange)="typeChange($event)"
+    >
+      <nz-option *ngFor="let item of allLoanProducts" [nzLabel]="item.name" [nzValue]="item.id"></nz-option>
+    </nz-select>
+  </div>
+  <div class="flex my-2 items-center">
+    <div class="label">贷款利率：</div>
+    <nz-input-number
+      class="flex-1 ml-2"
+      nzDisabled
+      [(ngModel)]="loan.rate"
+      nzPlaceHolder="请输入产品利率"
+      nzMin="0"
+      nzMax="1"
+      nzStep="0.01"
+    />
+  </div>
+  <div class="flex my-2 items-center">
+    <div class="label">贷款金额：</div>
+    <nz-input-number
+      class="flex-1 ml-2"
+      [(ngModel)]="loan.amount"
+      nzPlaceHolder="请输金额"
+      [nzMin]="selectLoanProduct?.minAmount"
+      [nzMax]="selectLoanProduct?.maxAmount"
+      nzStep="5000"
+    />元
+  </div>
+  <div class="flex my-2 items-center">
+    <div class="label">贷款期数：</div>
+    <nz-input-number
+      class="flex-1 ml-2"
+      [(ngModel)]="loan.period"
+      nzPlaceHolder="请输入期数"
+      [nzMin]="selectLoanProduct?.minPeriod"
+      [nzMax]="selectLoanProduct?.maxPeriod"
+      nzStep="1"
+    />月
+  </div>
+</div>
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="onCancel()">取消</button>
+  <button nz-button nzType="primary" (click)="onSave()">确定</button>
+</div>

@@ -57,8 +57,12 @@ export class HomeComponent implements OnInit {
       isOpen: false,
       children: [
         {
-          title: '贷款列表',
+          title: '我的贷款',
           routerLink: '/loan/list',
+        },
+        {
+          title: '贷款产品设置',
+          routerLink: '/loan/loan-setting',
         },
         {
           title: '贷款审批列表',

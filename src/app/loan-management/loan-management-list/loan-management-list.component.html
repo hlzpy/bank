@@ -1,1 +1,63 @@
-<p>loan-management-list works!</p>
+<div class="flex items-center justify-between mb-2">
+  <div class="flex">
+    <input style="width: 200px" nz-input placeholder="请输入关键字" [(ngModel)]="searchParams.searchText" />
+    <nz-select
+      class="ml-2"
+      style="width: 150px"
+      nzShowSearch
+      nzAllowClear
+      nzPlaceHolder="请选择贷款状态"
+      [(ngModel)]="searchParams.state"
+    >
+      <nz-option [nzLabel]="applyStatusEnum.PENDING" [nzValue]="applyStatusEnum.PENDING"></nz-option>
+      <nz-option [nzLabel]="applyStatusEnum.APPROVED" [nzValue]="applyStatusEnum.APPROVED"></nz-option>
+      <nz-option [nzLabel]="applyStatusEnum.REJECTED" [nzValue]="applyStatusEnum.REJECTED"></nz-option>
+    </nz-select>
+    <button class="ml-4" nz-button nzType="primary" (click)="search()">搜索</button>
+  </div>
+  <button class="ml-4" nz-button nzType="primary" (click)="edit()">申请贷款</button>
+</div>
+<nz-table #fixedTable [nzData]="myLoanList" [nzScroll]="{ x: '1000px', y: '400px' }">
+  <thead>
+    <tr>
+      <th nzWidth="80px" nzLeft>序号</th>
+      <th>贷款名称</th>
+      <th>年利率</th>
+      <th>贷款金额</th>
+      <th>贷款期数</th>
+      <th>申请日期</th>
+      <th>状态</th>
+      <th nzRight nzWidth="150px">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of fixedTable.data; let i = index">
+      <td nzWidth="80px" nzLeft>{{ i + 1 }}</td>
+      <td nzBreakWord>{{ data.name }}</td>
+      <td>{{ data.rate }}</td>
+      <td nzBreakWord>{{ data.amount }}</td>
+      <td nzBreakWord>{{ data.period }}期</td>
+      <td nzBreakWord>{{ data.date | date : 'YYYY-MM-dd' }}</td>
+      <td nzBreakWord>
+        <nz-tag *ngIf="data.state === applyStatusEnum.APPROVED" [nzColor]="'green'">{{ data.state }}</nz-tag>
+        <nz-tag *ngIf="data.state === applyStatusEnum.PENDING" [nzColor]="'magenta'">{{ data.state }}</nz-tag>
+        <nz-tag *ngIf="data.state === applyStatusEnum.REJECTED" [nzColor]="'red'">{{ data.state }}</nz-tag>
+      </td>
+      <td nzRight nzWidth="150px">
+        <a class="mr-2" (click)="edit(data)" *ngIf="data.state === applyStatusEnum.PENDING">编辑</a>
+        <a
+          *ngIf="data.state !== applyStatusEnum.APPROVED"
+          class="mr-2"
+          nz-popconfirm
+          nzPopconfirmTitle="确定删除吗?"
+          nzPopconfirmPlacement="bottom"
+          (nzOnConfirm)="remove(data.id)"
+          nzOkText="确定"
+          nzCancelText="取消"
+          >删除</a
+        >
+        <a class="mr-2" *ngIf="data.state === applyStatusEnum.APPROVED" (click)="plan(data)">还款计划</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

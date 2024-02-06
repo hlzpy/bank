@@ -1,0 +1,45 @@
+<div class="flex items-center justify-between mb-2">
+  <div class="flex">
+    <input style="width: 200px" nz-input placeholder="请输入关键字" [(ngModel)]="searchText" />
+    <button class="ml-4" nz-button nzType="primary" (click)="search()">搜索</button>
+  </div>
+  <button class="ml-4" nz-button nzType="primary" (click)="edit()">新增</button>
+</div>
+<nz-table #fixedTable [nzData]="allProducts" [nzScroll]="{ x: '1000px', y: '400px' }">
+  <thead>
+    <tr>
+      <th nzWidth="80px" nzLeft>序号</th>
+      <th>贷款名称</th>
+      <th>年利率</th>
+      <th>贷款最小金额</th>
+      <th>贷款最大金额</th>
+      <th>贷款最小期数</th>
+      <th>贷款最大期数</th>
+      <th nzRight nzWidth="150px">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of fixedTable.data; let i = index">
+      <td nzWidth="80px" nzLeft>{{ i + 1 }}</td>
+      <td nzBreakWord>{{ data.name }}</td>
+      <td>{{ data.rate }}</td>
+      <td nzBreakWord>{{ data.minAmount }}</td>
+      <td nzBreakWord>{{ data.maxAmount }}</td>
+      <td nzBreakWord>{{ data.minPeriod }}期</td>
+      <td nzBreakWord>{{ data.maxPeriod }}期</td>
+      <td nzRight nzWidth="150px">
+        <a
+          class="mr-2"
+          nz-popconfirm
+          nzPopconfirmTitle="确定删除吗?"
+          nzPopconfirmPlacement="bottom"
+          (nzOnConfirm)="remove(data.id)"
+          nzOkText="确定"
+          nzCancelText="取消"
+          >删除</a
+        >
+        <a class="mr-2" (click)="edit(data)">修改</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

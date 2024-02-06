@@ -1,0 +1,20 @@
+<nz-table #fixedTable [nzData]="repaymentPlan" [nzScroll]="{ x: '800px', y: '300px' }">
+  <thead>
+    <tr>
+      <th>期数</th>
+      <th>还款日期</th>
+      <th>本金</th>
+      <th>利息</th>
+      <th>剩余本金</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of fixedTable.data; let i = index">
+      <td>{{ item.installment }}</td>
+      <td>{{ item.date }}</td>
+      <td>{{ item.principalPayment }}</td>
+      <td>{{ item.interestPayment }}</td>
+      <td>{{ item.remainingBalance }}</td>
+    </tr>
+  </tbody>
+</nz-table>
