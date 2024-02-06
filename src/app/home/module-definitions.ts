@@ -12,13 +12,13 @@ export const MODULE_DEFINITIONS: Route[] = [
         m => m.CustomerInformationManagementModule,
       ),
   },
-  {
-    path: 'customer-info',
-    loadChildren: () =>
-      import('../customer-information-management/customer-information-management.module').then(
-        m => m.CustomerInformationManagementModule,
-      ),
-  },
+  // {
+  //   path: 'customer-info',
+  //   loadChildren: () =>
+  //     import('../customer-information-management/customer-information-management.module').then(
+  //       m => m.CustomerInformationManagementModule,
+  //     ),
+  // },
   {
     path: 'customer-account-info',
     loadChildren: () =>

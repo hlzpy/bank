@@ -1,1 +1,66 @@
-<p>deposit-management-approval-list works!</p>
+<div class="flex items-center justify-between mb-2">
+  <div class="flex">
+    <input style="width: 200px" nz-input placeholder="请输入关键字" [(ngModel)]="searchParams.searchText" />
+    <nz-select
+      class="ml-2"
+      style="width: 150px"
+      nzShowSearch
+      nzAllowClear
+      nzPlaceHolder="请选择交易方式"
+      [(ngModel)]="searchParams.status"
+    >
+      <nz-option [nzLabel]="applyStatusEnum.PENDING" [nzValue]="applyStatusEnum.PENDING"></nz-option>
+      <nz-option [nzLabel]="applyStatusEnum.APPROVED" [nzValue]="applyStatusEnum.APPROVED"></nz-option>
+      <nz-option [nzLabel]="applyStatusEnum.REJECTED" [nzValue]="applyStatusEnum.REJECTED"></nz-option>
+    </nz-select>
+    <button class="ml-4" nz-button nzType="primary" (click)="search()">搜索</button>
+  </div>
+</div>
+<nz-table #fixedTable [nzData]="listOfData" [nzScroll]="{ x: '1000px', y: '400px' }">
+  <thead>
+    <tr>
+      <th nzWidth="80px" nzLeft>序号</th>
+      <th>申请人</th>
+      <th>申请日期</th>
+      <th>存入金额</th>
+      <th>买入产品</th>
+      <th>产品年利率</th>
+      <th>起购金额</th>
+      <th>存期</th>
+      <th>状态</th>
+      <th nzRight nzWidth="150px">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of fixedTable.data; let i = index">
+      <td nzWidth="80px" nzLeft>{{ i + 1 }}</td>
+      <td nzBreakWord>{{ data.name }}</td>
+      <td>{{ data.applicationDate | date : 'YYYY-MM-dd' }}</td>
+      <td nzBreakWord>{{ data.depositAmount }}</td>
+      <td nzBreakWord>{{ data.productName }}</td>
+      <td nzBreakWord>{{ data.rate }}</td>
+      <td nzBreakWord>{{ data.minimumInvestment }}</td>
+      <td nzBreakWord>{{ data.depositTerm }}</td>
+      <td nzBreakWord>
+        <nz-tag *ngIf="data.status === applyStatusEnum.APPROVED" [nzColor]="'green'">{{ data.status }}</nz-tag>
+        <nz-tag *ngIf="data.status === applyStatusEnum.PENDING" [nzColor]="'magenta'">{{ data.status }}</nz-tag>
+        <nz-tag *ngIf="data.status === applyStatusEnum.REJECTED" [nzColor]="'red'">{{ data.status }}</nz-tag>
+      </td>
+      <td nzRight nzWidth="150px">
+        <a class="mr-2" (click)="remove(data.id)">删除</a>
+        <a class="mr-2" *ngIf="data.status === applyStatusEnum.PENDING" (click)="approve(data)">审批</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+
+<ng-template #approveTemp>
+  <!-- <nz-switch [(ngModel)]="isApprove" nzCheckedChildren="通过" nzUnCheckedChildren="拒绝"></nz-switch> -->
+<div class="flex items-center">
+  <nz-radio-group [(ngModel)]="isApprove" nzButtonStyle="solid">
+    <label nz-radio-button [nzValue]="true">审批通过</label>
+    <label nz-radio-button [nzValue]="false">审批拒绝</label>
+  </nz-radio-group>
+  <input nz-input *ngIf="!isApprove" style="width: 200px; margin-left: 8px;"  [(ngModel)]="reasonForRejection"  placeholder="请输入拒绝原因">
+</div>
+</ng-template>

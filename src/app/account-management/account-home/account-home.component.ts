@@ -16,9 +16,9 @@ export class AccountHomeComponent {
   commonFunctions = [
     { label: '转账', src: './assets/img_transfer.png' },
     { label: '账户查询', src: './assets/img_query_account.png' },
-    { label: '基金', src: './assets/img_fund.png' },
     { label: '理财资讯', src: './assets/img_finance.png' },
-    { label: '缴费', src: './assets/img_pay-fee.png' },
+    { label: '贷款管理', src: './assets/img_fund.png' },
+    { label: '存款管理', src: './assets/img_pay-fee.png' },
   ];
   financialProducts = [
     {
@@ -93,6 +93,14 @@ export class AccountHomeComponent {
     }
     if (name === '理财资讯') {
       this.router.navigate(['/news']);
+      return;
+    }
+    if (name === '贷款管理') {
+      this.router.navigate(['/loan/list']);
+      return;
+    }
+    if (name === '存款管理') {
+      this.router.navigate(['/deposit/list']);
       return;
     }
     if (name === '转账') {

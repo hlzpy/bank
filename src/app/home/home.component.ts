@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
       children: [
         {
           title: '客户账号列表',
-          routerLink: '/customer-account-list',
+          routerLink: '/customer-account-info/customer-account-list',
         },
       ],
     },
@@ -75,6 +75,10 @@ export class HomeComponent implements OnInit {
         {
           title: '存款列表',
           routerLink: '/deposit/list',
+        },
+        {
+          title: '存款利率设置',
+          routerLink: '/deposit/rate-setting',
         },
         {
           title: '存款审批列表',

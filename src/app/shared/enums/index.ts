@@ -12,3 +12,10 @@ export enum Keys {
   // 转账
   TransferMoney = "TransferMoney",
 }
+
+
+export enum ApplyStatusEnum {
+  PENDING = '待处理',
+  APPROVED = '已批准',
+  REJECTED = '已拒绝',
+}
