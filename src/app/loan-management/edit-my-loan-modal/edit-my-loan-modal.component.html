@@ -9,7 +9,7 @@
       [(ngModel)]="loan.name"
       (ngModelChange)="typeChange($event)"
     >
-      <nz-option *ngFor="let item of allLoanProducts" [nzLabel]="item.name" [nzValue]="item.id"></nz-option>
+      <nz-option *ngFor="let item of allLoanProducts" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
     </nz-select>
   </div>
   <div class="flex my-2 items-center">

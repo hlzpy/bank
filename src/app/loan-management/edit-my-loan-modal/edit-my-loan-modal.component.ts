@@ -36,8 +36,8 @@ export class EditMyLoanModalComponent implements OnInit {
     this.modalRef.close();
   }
 
-  typeChange(id: string) {
-    this.selectLoanProduct = this.allLoanProducts.find(item => item.id === id);
+  typeChange(name: string) {
+    this.selectLoanProduct = this.allLoanProducts.find(item => item.name === name);
     this.loan.rate = this.selectLoanProduct.rate;
   }
 
