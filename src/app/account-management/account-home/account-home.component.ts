@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { UserService } from 'src/app/shared/services/user.service';
 import { BuyYieldModalComponent } from '../buy-yield-modal/buy-yield-modal.component';
 import { Router } from '@angular/router';
 import { TransferMoneyModalComponent } from '../transfer-money-modal/transfer-money-modal.component';
+import Mock from 'mockjs';
 
 @Component({
   selector: 'app-account-home',
   templateUrl: './account-home.component.html',
   styleUrls: ['./account-home.component.scss'],
 })
-export class AccountHomeComponent {
+export class AccountHomeComponent implements OnInit {
   isShow = false;
   commonFunctions = [
     { label: '转账', src: './assets/img_transfer.png' },
@@ -47,12 +48,19 @@ export class AccountHomeComponent {
     },
   ];
 
+  customerNumber: number;
+
   constructor(
     public userSvc: UserService,
     private modalSvc: NzModalService,
     private msgSvc: NzMessageService,
     private router: Router,
   ) {}
+  ngOnInit(): void {
+    this.customerNumber = Mock.mock({
+      'number|10': /\d/,
+    }).number;
+  }
 
   moneyEye() {
     this.isShow = !this.isShow;
