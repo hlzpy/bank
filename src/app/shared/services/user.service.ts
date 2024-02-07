@@ -26,6 +26,9 @@ export class UserService {
     }
     const currentUser = currentUserType?.find(item => item.userName === userName && item.password === password);
     if (currentUser) {
+      if (currentUser.status !== '正常') {
+        return throwError({ message: '该用户已被禁用,请联系管理员', state: 'error' });
+      }
       this.setCurrentUser({ ...currentUser });
       return of({ message: '登录成功', state: 'success' });
     }
@@ -46,7 +49,7 @@ export class UserService {
     const allUsers = this.getJsonParse(Keys.AllRegisteredUsers) || [];
     const currentUserType = allUsers.filter(item => item.userType === userType);
     if (currentUserType?.length === 0 || !currentUserType?.some(item => item.userName === userName)) {
-      localStorage.setItem(Keys.AllRegisteredUsers, JSON.stringify([...allUsers, { ...data, id: uuid(), balance: 1000000 }]));
+      localStorage.setItem(Keys.AllRegisteredUsers, JSON.stringify([...allUsers, { ...data, id: uuid(), balance: 1000000, status: '正常' }]));
       return of({ message: '注册成功', state: 'success' });
     }
     if (currentUserType?.some(item => item.userName === userName)) {

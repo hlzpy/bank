@@ -47,7 +47,16 @@
         <nz-tag *ngIf="data.status === applyStatusEnum.REJECTED" [nzColor]="'red'">{{ data.status }}</nz-tag>
       </td>
       <td nzRight nzWidth="150px">
-        <a class="mr-2" (click)="remove(data.id)">删除</a>
+        <a
+          class="mr-2"
+          nz-popconfirm
+          nzPopconfirmTitle="确定删除吗?"
+          nzPopconfirmPlacement="bottom"
+          (nzOnConfirm)="remove(data.id)"
+          nzOkText="确定"
+          nzCancelText="取消"
+          >删除</a
+        >
         <a class="mr-2" *ngIf="data.status === applyStatusEnum.PENDING" (click)="approve(data)">审批</a>
       </td>
     </tr>
@@ -56,11 +65,17 @@
 
 <ng-template #approveTemp>
   <!-- <nz-switch [(ngModel)]="isApprove" nzCheckedChildren="通过" nzUnCheckedChildren="拒绝"></nz-switch> -->
-<div class="flex items-center">
-  <nz-radio-group [(ngModel)]="isApprove" nzButtonStyle="solid">
-    <label nz-radio-button [nzValue]="true">审批通过</label>
-    <label nz-radio-button [nzValue]="false">审批拒绝</label>
-  </nz-radio-group>
-  <input nz-input *ngIf="!isApprove" style="width: 200px; margin-left: 8px;"  [(ngModel)]="reasonForRejection"  placeholder="请输入拒绝原因">
-</div>
+  <div class="flex items-center">
+    <nz-radio-group [(ngModel)]="isApprove" nzButtonStyle="solid">
+      <label nz-radio-button [nzValue]="true">审批通过</label>
+      <label nz-radio-button [nzValue]="false">审批拒绝</label>
+    </nz-radio-group>
+    <input
+      nz-input
+      *ngIf="!isApprove"
+      style="width: 200px; margin-left: 8px"
+      [(ngModel)]="reasonForRejection"
+      placeholder="请输入拒绝原因"
+    />
+  </div>
 </ng-template>

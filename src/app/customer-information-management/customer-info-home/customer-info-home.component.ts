@@ -6,6 +6,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { Keys, UserType } from 'src/app/shared/enums';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import * as _ from 'lodash';
+import { defaultCustomerUser } from 'src/app/shared/utils';
 
 @Component({
   selector: 'app-customer-info-home',
@@ -21,6 +22,7 @@ export class CustomerInfoHomeComponent implements OnInit {
   constructor(private modalSvc: NzModalService, private userSvc: UserService, private msgSvc: NzMessageService) {}
   ngOnInit(): void {
     this.getUser();
+
   }
 
   search() {
@@ -137,7 +139,7 @@ export class CustomerInfoHomeComponent implements OnInit {
   getUser() {
     this.userSvc.getUser(Keys.AllRegisteredUsers).subscribe({
       next: data => {
-        this.listOfData = data
+        const listOfData = data
           ?.filter(item => item.userType === UserType.NormalUser)
           .map(item => {
             return {
@@ -156,6 +158,7 @@ export class CustomerInfoHomeComponent implements OnInit {
               status: '正常',
             };
           });
+        this.listOfData = [...listOfData, ...defaultCustomerUser.list];
         this.cacheData = _.cloneDeep(this.listOfData);
       },
     });

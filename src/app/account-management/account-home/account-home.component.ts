@@ -15,7 +15,7 @@ export class AccountHomeComponent {
   isShow = false;
   commonFunctions = [
     { label: '转账', src: './assets/img_transfer.png' },
-    { label: '账户查询', src: './assets/img_query_account.png' },
+    { label: '交易记录', src: './assets/img_query_account.png' },
     { label: '理财资讯', src: './assets/img_finance.png' },
     { label: '贷款管理', src: './assets/img_fund.png' },
     { label: '存款管理', src: './assets/img_pay-fee.png' },
@@ -87,7 +87,7 @@ export class AccountHomeComponent {
   }
 
   goToPage(name) {
-    if (name === '账户查询') {
+    if (name === '交易记录') {
       this.router.navigate(['/account/transaction-detail']);
       return;
     }

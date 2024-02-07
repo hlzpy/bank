@@ -3,8 +3,10 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import * as _ from 'lodash';
 import dayjs from 'dayjs';
-import { ApplyStatusEnum } from 'src/app/shared/enums';
+import { ApplyStatusEnum, UserType } from 'src/app/shared/enums';
 import { products } from '../utils';
+import Mock from 'mockjs';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-deposit-management-approval-list',
@@ -13,7 +15,7 @@ import { products } from '../utils';
 })
 export class DepositManagementApprovalListComponent {
   @ViewChild('approveTemp') approveTemp: TemplateRef<any>;
-
+  userType = UserType;
   searchParams = {
     searchText: null,
     dateRange: null,
@@ -27,7 +29,7 @@ export class DepositManagementApprovalListComponent {
   isApprove: boolean = true;
   // 拒绝原因
   reasonForRejection: string;
-  constructor(private modalSvc: NzModalService, private msgSvc: NzMessageService) {}
+  constructor(private modalSvc: NzModalService, private msgSvc: NzMessageService, public userSvc: UserService) {}
 
   ngOnInit(): void {
     this.listOfData = Array(100).fill(1).map((_, index) => {
@@ -40,7 +42,7 @@ export class DepositManagementApprovalListComponent {
       const { name: productName, minimumInvestment, depositTerm, rate } = products.find(p => p.id === id);
       return {
         id: index + 1,
-        name: `张${index + 1}`,
+        name: Mock.mock('@cname'),
         applicationDate: '2024/02/03 19:10:28',
         depositAmount: 100 * index,
         productName,

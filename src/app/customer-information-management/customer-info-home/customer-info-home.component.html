@@ -33,7 +33,7 @@
       <td nzBreakWord>{{ data.bankName }}</td>
       <td nzBreakWord>{{ data.status }}</td>
       <td nzRight>
-        <a class="mr-2" (click)="editCustomerInfo(data)">编辑</a>
+        <a class="mr-2" *ngIf="data.status === '正常'" (click)="editCustomerInfo(data)">编辑</a>
         <a
           nz-popconfirm
           nzPopconfirmTitle="确定删除吗?"

@@ -1,1 +1,64 @@
-<p>safety-certification-list works!</p>
+<div class="flex items-center justify-between mb-2">
+  <div class="flex">
+    <input nz-input placeholder="姓名、用户名" [(ngModel)]="searchText" />
+    <nz-select style="width: 150px" class="ml-2" nzShowSearch nzAllowClear nzPlaceHolder="请选择账户状态" [(ngModel)]="state">
+      <nz-option nzLabel="正常" nzValue="正常"></nz-option>
+      <nz-option nzLabel="冻结" nzValue="冻结"></nz-option>
+      <nz-option nzLabel="归档" nzValue="归档"></nz-option>
+    </nz-select>
+    <button class="ml-4" nz-button nzType="primary" (click)="search()">搜索</button>
+  </div>
+</div>
+<nz-table #fixedTable [nzData]="listOfData" [nzScroll]="{ x: '1000px', y: '400px' }">
+  <thead>
+    <tr>
+      <th nzLeft>用户名</th>
+      <th>姓名</th>
+      <th>身份证号</th>
+      <th>手机号</th>
+      <th>邮箱</th>
+
+      <th>状态</th>
+      <th nzRight style="width: 80px">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of fixedTable.data">
+      <td nzLeft>{{ data.userName }}</td>
+      <td>{{ data.name }}</td>
+      <td nzBreakWord>{{ data.idNumber }}</td>
+      <td nzBreakWord>{{ data.phoneNumber }}</td>
+      <td nzBreakWord>{{ data.emailAddress }}</td>
+      <td nzBreakWord>
+        <nz-tag [nzColor]="'green'" *ngIf="data.status === '正常'">{{ data.status }}</nz-tag>
+        <nz-tag [nzColor]="'red'" *ngIf="data.status === '冻结'">{{ data.status }}</nz-tag>
+        <nz-tag [nzColor]="'#f50'" *ngIf="data.status === '归档'">{{ data.status }}</nz-tag>
+      </td>
+      <td nzRight>
+        <a
+          class="mr-2"
+          *ngIf="data.status === '正常'"
+          nz-popconfirm
+          nzPopconfirmTitle="确定冻结该账户吗?"
+          nzPopconfirmPlacement="bottom"
+          (nzOnConfirm)="editCustomerInfo(data, '冻结')"
+          nzOkText="确定"
+          nzCancelText="取消"
+          >冻结</a
+        >
+        <a
+          class="mr-2"
+          *ngIf="data.status === '冻结'"
+          nz-popconfirm
+          nzPopconfirmTitle="确定要启用该账户吗?"
+          nzPopconfirmPlacement="bottom"
+          (nzOnConfirm)="editCustomerInfo(data, '正常')"
+          nzOkText="确定"
+          nzCancelText="取消"
+          >启用</a
+        >
+        <span *ngIf="data.status === '归档'" class="text-gray-300 text-xs">已归档不可操作</span>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

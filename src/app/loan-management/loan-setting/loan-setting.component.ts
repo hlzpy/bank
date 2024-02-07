@@ -5,6 +5,8 @@ import { v4 as uuid } from 'uuid';
 import { LoanSettingModalComponent } from '../loan-setting-modal/loan-setting-modal.component';
 import { allLoanProducts } from '../utils';
 import * as _ from 'lodash';
+import { UserService } from 'src/app/shared/services/user.service';
+import { UserType } from 'src/app/shared/enums';
 
 @Component({
   selector: 'app-loan-setting',
@@ -16,8 +18,8 @@ export class LoanSettingComponent implements OnInit {
 
   allProducts = allLoanProducts.map(item => item);
   cacheAllProducts = [];
-
-  constructor(private modalSvc: NzModalService, private msgSvc: NzMessageService) {}
+  userType = UserType;
+  constructor(private modalSvc: NzModalService, private msgSvc: NzMessageService, public userSvc: UserService) {}
 
   ngOnInit(): void {
     this.cacheAllProducts = _.cloneDeep(this.allProducts);

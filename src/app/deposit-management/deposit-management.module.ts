@@ -22,14 +22,11 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { ProductRateSettingComponent } from './product-rate-setting/product-rate-setting.component';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 
 
 @NgModule({
-  declarations: [
-    DepositManagementListComponent,
-    DepositManagementApprovalListComponent,
-    ProductRateSettingComponent
-  ],
+  declarations: [DepositManagementListComponent, DepositManagementApprovalListComponent, ProductRateSettingComponent],
   imports: [
     CommonModule,
     DepositManagementRoutingModule,
@@ -51,6 +48,7 @@ import { ProductRateSettingComponent } from './product-rate-setting/product-rate
     NzSwitchModule,
     NzRadioModule,
     NzInputModule,
-  ]
+    NzPopconfirmModule,
+  ],
 })
-export class DepositManagementModule { }
+export class DepositManagementModule {}

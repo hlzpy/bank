@@ -4,6 +4,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 import { products } from 'src/app/deposit-management/utils';
 import { ApplyStatusEnum } from 'src/app/shared/enums';
 import * as _ from 'lodash';
+import Mock from 'mockjs';
 
 @Component({
   selector: 'app-loan-management-approval-list',
@@ -41,7 +42,7 @@ export class LoanManagementApprovalListComponent {
         };
         return {
           id: index + 1,
-          name: `王${index + 1}`,
+          name: Mock.mock('@cname'),
           applicationDate: '2024/02/08',
           amount: 10000 * (index + 1),
           type: '购房贷款',

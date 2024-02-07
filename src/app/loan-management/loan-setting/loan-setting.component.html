@@ -3,7 +3,7 @@
     <input style="width: 200px" nz-input placeholder="请输入关键字" [(ngModel)]="searchText" />
     <button class="ml-4" nz-button nzType="primary" (click)="search()">搜索</button>
   </div>
-  <button class="ml-4" nz-button nzType="primary" (click)="edit()">新增</button>
+  <button class="ml-4" nz-button nzType="primary" (click)="edit()" *ngIf="userSvc?.currentLoginUser?.userType === userType.BankInstitution">新增</button>
 </div>
 <nz-table #fixedTable [nzData]="allProducts" [nzScroll]="{ x: '1000px', y: '400px' }">
   <thead>
@@ -15,7 +15,7 @@
       <th>贷款最大金额</th>
       <th>贷款最小期数</th>
       <th>贷款最大期数</th>
-      <th nzRight nzWidth="150px">操作</th>
+      <th nzRight nzWidth="150px" *ngIf="userSvc?.currentLoginUser?.userType === userType.BankInstitution">操作</th>
     </tr>
   </thead>
   <tbody>
@@ -27,7 +27,7 @@
       <td nzBreakWord>{{ data.maxAmount }}</td>
       <td nzBreakWord>{{ data.minPeriod }}期</td>
       <td nzBreakWord>{{ data.maxPeriod }}期</td>
-      <td nzRight nzWidth="150px">
+      <td nzRight nzWidth="150px" *ngIf="userSvc?.currentLoginUser?.userType === userType.BankInstitution">
         <a
           class="mr-2"
           nz-popconfirm
